@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="LibraryDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="TBL_BOOK">
+    <Key>
+      <PropertyRef Name="book_id" />
+    </Key>
+    <Property Name="book_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="photo" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="numofcopies" Type="Int32" Nullable="false" />
+    <Property Name="isbn" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="TBL_RESRVATION" Relationship="LibraryDBModel.FK__TBL_RESRV__book___1920BF5C" FromRole="TBL_BOOK" ToRole="TBL_RESRVATION" />
+  </EntityType>
+  <EntityType Name="TBL_USER">
+    <Key>
+      <PropertyRef Name="user_id" />
+    </Key>
+    <Property Name="user_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="password" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="TBL_RESRVATION" Relationship="LibraryDBModel.FK__TBL_RESRV__user___1A14E395" FromRole="TBL_USER" ToRole="TBL_RESRVATION" />
+  </EntityType>
+  <EntityContainer Name="LibraryDBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="TBL_BOOK" EntityType="Self.TBL_BOOK" />
+    <EntitySet Name="TBL_USER" EntityType="Self.TBL_USER" />
+    <EntitySet Name="TBL_RESRVATION" EntityType="LibraryDBModel.TBL_RESRVATION" />
+    <AssociationSet Name="FK__TBL_RESRV__book___1920BF5C" Association="LibraryDBModel.FK__TBL_RESRV__book___1920BF5C">
+      <End Role="TBL_BOOK" EntitySet="TBL_BOOK" />
+      <End Role="TBL_RESRVATION" EntitySet="TBL_RESRVATION" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TBL_RESRV__user___1A14E395" Association="LibraryDBModel.FK__TBL_RESRV__user___1A14E395">
+      <End Role="TBL_USER" EntitySet="TBL_USER" />
+      <End Role="TBL_RESRVATION" EntitySet="TBL_RESRVATION" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="TBL_RESRVATION">
+    <Key>
+      <PropertyRef Name="reservation_id" />
+    </Key>
+    <Property Name="reservation_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="book_id" Type="Int32" Nullable="false" />
+    <Property Name="user_id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="TBL_BOOK" Relationship="LibraryDBModel.FK__TBL_RESRV__book___1920BF5C" FromRole="TBL_RESRVATION" ToRole="TBL_BOOK" />
+    <NavigationProperty Name="TBL_USER" Relationship="LibraryDBModel.FK__TBL_RESRV__user___1A14E395" FromRole="TBL_RESRVATION" ToRole="TBL_USER" />
+  </EntityType>
+  <Association Name="FK__TBL_RESRV__book___1920BF5C">
+    <End Type="LibraryDBModel.TBL_BOOK" Role="TBL_BOOK" Multiplicity="1" />
+    <End Type="LibraryDBModel.TBL_RESRVATION" Role="TBL_RESRVATION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_BOOK">
+        <PropertyRef Name="book_id" />
+      </Principal>
+      <Dependent Role="TBL_RESRVATION">
+        <PropertyRef Name="book_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TBL_RESRV__user___1A14E395">
+    <End Type="LibraryDBModel.TBL_USER" Role="TBL_USER" Multiplicity="1" />
+    <End Type="LibraryDBModel.TBL_RESRVATION" Role="TBL_RESRVATION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_USER">
+        <PropertyRef Name="user_id" />
+      </Principal>
+      <Dependent Role="TBL_RESRVATION">
+        <PropertyRef Name="user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="LibraryDBModelStoreContainer" CdmEntityContainer="LibraryDBEntities">
+    <EntitySetMapping Name="TBL_BOOK">
+      <EntityTypeMapping TypeName="LibraryDBModel.TBL_BOOK">
+        <MappingFragment StoreEntitySet="TBL_BOOK">
+          <ScalarProperty Name="book_id" ColumnName="book_id" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="photo" ColumnName="photo" />
+          <ScalarProperty Name="numofcopies" ColumnName="numofcopies" />
+          <ScalarProperty Name="isbn" ColumnName="isbn" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBL_USER">
+      <EntityTypeMapping TypeName="LibraryDBModel.TBL_USER">
+        <MappingFragment StoreEntitySet="TBL_USER">
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="password" ColumnName="password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBL_RESRVATION">
+      <EntityTypeMapping TypeName="LibraryDBModel.TBL_RESRVATION">
+        <MappingFragment StoreEntitySet="TBL_RESRVATION">
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="book_id" ColumnName="book_id" />
+          <ScalarProperty Name="reservation_id" ColumnName="reservation_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

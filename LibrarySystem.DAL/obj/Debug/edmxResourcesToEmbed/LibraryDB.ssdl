@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="LibraryDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="TBL_BOOK">
+    <Key>
+      <PropertyRef Name="book_id" />
+    </Key>
+    <Property Name="book_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="title" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="photo" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="numofcopies" Type="int" Nullable="false" />
+    <Property Name="isbn" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TBL_RESRVATION">
+    <Key>
+      <PropertyRef Name="reservation_id" />
+    </Key>
+    <Property Name="reservation_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="book_id" Type="int" Nullable="false" />
+    <Property Name="user_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TBL_USER">
+    <Key>
+      <PropertyRef Name="user_id" />
+    </Key>
+    <Property Name="user_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="username" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="password" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__TBL_RESRV__book___1920BF5C">
+    <End Role="TBL_BOOK" Type="Self.TBL_BOOK" Multiplicity="1" />
+    <End Role="TBL_RESRVATION" Type="Self.TBL_RESRVATION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_BOOK">
+        <PropertyRef Name="book_id" />
+      </Principal>
+      <Dependent Role="TBL_RESRVATION">
+        <PropertyRef Name="book_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TBL_RESRV__user___1A14E395">
+    <End Role="TBL_USER" Type="Self.TBL_USER" Multiplicity="1" />
+    <End Role="TBL_RESRVATION" Type="Self.TBL_RESRVATION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_USER">
+        <PropertyRef Name="user_id" />
+      </Principal>
+      <Dependent Role="TBL_RESRVATION">
+        <PropertyRef Name="user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="LibraryDBModelStoreContainer">
+    <EntitySet Name="TBL_BOOK" EntityType="Self.TBL_BOOK" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBL_RESRVATION" EntityType="Self.TBL_RESRVATION" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBL_USER" EntityType="Self.TBL_USER" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__TBL_RESRV__book___1920BF5C" Association="Self.FK__TBL_RESRV__book___1920BF5C">
+      <End Role="TBL_BOOK" EntitySet="TBL_BOOK" />
+      <End Role="TBL_RESRVATION" EntitySet="TBL_RESRVATION" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TBL_RESRV__user___1A14E395" Association="Self.FK__TBL_RESRV__user___1A14E395">
+      <End Role="TBL_USER" EntitySet="TBL_USER" />
+      <End Role="TBL_RESRVATION" EntitySet="TBL_RESRVATION" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

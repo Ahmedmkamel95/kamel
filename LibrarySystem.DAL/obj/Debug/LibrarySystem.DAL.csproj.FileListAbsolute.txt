@@ -1,0 +1,10 @@
+c:\users\kamel\documents\visual studio 2013\Projects\LibrarySystem\LibrarySystem.DAL\bin\Debug\LibrarySystem.DAL.dll.config
+c:\users\kamel\documents\visual studio 2013\Projects\LibrarySystem\LibrarySystem.DAL\bin\Debug\LibrarySystem.DAL.dll
+c:\users\kamel\documents\visual studio 2013\Projects\LibrarySystem\LibrarySystem.DAL\bin\Debug\LibrarySystem.DAL.pdb
+c:\users\kamel\documents\visual studio 2013\Projects\LibrarySystem\LibrarySystem.DAL\bin\Debug\EntityFramework.dll
+c:\users\kamel\documents\visual studio 2013\Projects\LibrarySystem\LibrarySystem.DAL\bin\Debug\EntityFramework.SqlServer.dll
+c:\users\kamel\documents\visual studio 2013\Projects\LibrarySystem\LibrarySystem.DAL\bin\Debug\EntityFramework.xml
+c:\users\kamel\documents\visual studio 2013\Projects\LibrarySystem\LibrarySystem.DAL\bin\Debug\EntityFramework.SqlServer.xml
+c:\users\kamel\documents\visual studio 2013\Projects\LibrarySystem\LibrarySystem.DAL\obj\Debug\LibrarySystem.DAL.csprojResolveAssemblyReference.cache
+c:\users\kamel\documents\visual studio 2013\Projects\LibrarySystem\LibrarySystem.DAL\obj\Debug\LibrarySystem.DAL.dll
+c:\users\kamel\documents\visual studio 2013\Projects\LibrarySystem\LibrarySystem.DAL\obj\Debug\LibrarySystem.DAL.pdb
